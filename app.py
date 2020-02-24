@@ -1,5 +1,8 @@
 import cv2
 
+x1, y1, x2, y2 = 200, 200, 500, 500
+
+
 cv2.namedWindow("preview")
 vc = cv2.VideoCapture(0)
 
@@ -9,6 +12,9 @@ else:
     rval = False
 
 while rval:
+    # frame = cv2.flip(frame, 1)
+    cv2.rectangle(frame, (x1, y1), (x2, y2), (0,128,0), 2)
+
     cv2.imshow("Gesture Recognition System for Deaf", frame)
     rval, frame = vc.read()
     key = cv2.waitKey(20)
